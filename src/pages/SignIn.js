@@ -1,5 +1,5 @@
 import {
-  Box, Button, Card, CardActions, CardContent, CardHeader, TextField, Typography
+  Box, Button, Card, CardActions, CardContent, CardHeader, CircularProgress, TextField, Typography
 } from '@material-ui/core';
 import PAGES from 'constants/pages';
 import useAuth from 'hooks/useAuth';
@@ -23,24 +23,27 @@ const SignIn = () => {
   }
 
   return (
-    <Box mt={10} width="400px" display="flex" justifyContent="center">
+    <Box mt={10}>
       <Box>
         <form onSubmit={login}>
-          <Card>
+          <Card style={{ width: 400 }}>
             <CardHeader title="Sign in" />
             <CardContent>
               <TextField
                 label="Username"
                 fullWidth
                 required
+                disabled={loginMutation.isLoading}
                 value={form.username}
                 onChange={(e) => setForm((prev) => ({ ...prev, username: e.target.value }))}
               />
+              <Box mt={1} />
               <TextField
                 type="password"
                 label="Password"
                 fullWidth
                 required
+                disabled={loginMutation.isLoading}
                 value={form.password}
                 onChange={(e) => setForm((prev) => ({ ...prev, password: e.target.value }))}
               />
@@ -55,16 +58,20 @@ const SignIn = () => {
               </Box>
             </CardContent>
             <Box p={2}>
-              <Button variant="contained" color="primary" type="submit">
+              <Button
+                variant="contained"
+                color="primary"
+                disabled={loginMutation.isLoading}
+                endIcon={loginMutation.isLoading && <CircularProgress size={22} />}
+                type="submit"
+              >
                 Login
               </Button>
             </Box>
             <CardActions>
-              <Link to={PAGES.SIGN_UP}>
-                <Typography>
-                  Register
-                </Typography>
-              </Link>
+              <Typography component={Link} to={PAGES.SIGN_UP} color="inherit">
+                Register
+              </Typography>
             </CardActions>
           </Card>
         </form>

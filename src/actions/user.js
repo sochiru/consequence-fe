@@ -21,4 +21,8 @@ export const registerUser = (context) => axiosPublic()
   .post(API.SIGN_UP, { ...context })
   .then((res) => res.data);
 
-export default { getUserInfo, registerUser };
+export const updateCred = (context) => axios()
+  .put(API.USER_INFO, { ...context })
+  .then((res) => res.data);
+
+export default { getUserInfo, registerUser, updateCred };

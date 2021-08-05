@@ -30,7 +30,8 @@ export default (history = null) => {
             // eslint-disable-next-line no-console
             console.log(`Error: ${error.response.status}`);
             if (history) {
-              history.push(`${PAGES.SIGN_OUT}`);
+              localStorage.clear();
+              history.push(`${PAGES.SIGN_IN}`);
             }
             break;
           default:

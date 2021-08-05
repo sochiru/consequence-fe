@@ -31,6 +31,7 @@ const SignUp = () => {
                 type="email"
                 label="Email"
                 fullWidth
+                required
                 disabled={register.isLoading}
                 value={form.email}
                 onChange={(e) => setForm((prev) => ({ ...prev, email: e.target.value }))}
@@ -38,6 +39,7 @@ const SignUp = () => {
               <TextField
                 label="Username"
                 fullWidth
+                required
                 disabled={register.isLoading}
                 value={form.username}
                 onChange={(e) => setForm((prev) => ({ ...prev, username: e.target.value }))}
@@ -46,6 +48,7 @@ const SignUp = () => {
                 type="password"
                 label="Password"
                 fullWidth
+                required
                 disabled={register.isLoading}
                 value={form.password}
                 onChange={(e) => setForm((prev) => ({ ...prev, password: e.target.value }))}

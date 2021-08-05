@@ -5,8 +5,6 @@ import Topbar from './Topbar';
 const PublicLayout = (props) => {
   const { children } = props;
 
-  console.log('HELLO');
-
   return (
     <Box>
       <Topbar />
