@@ -10,7 +10,7 @@ import Routes from './Routes';
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: Infinity,
+      staleTime: 0,
       retry: false
     },
   },
