@@ -5,6 +5,8 @@ import {
 } from '@material-ui/core';
 import useAuthorizeBank from 'hooks/useAuthorizeBank';
 import useUser from 'hooks/useUser';
+import UserInfo from 'components/UserInfo/UserInfo';
+import ChangePassword from 'components/ChangePassword/ChangePassword';
 
 const Dashboard = () => {
   const { user } = useUser();
@@ -12,9 +14,10 @@ const Dashboard = () => {
 
   return (
     <Box p={2}>
-      <Typography variant="h4">Hello {user.data.username}</Typography>
-      <Box mt={3}>
-        {
+      <Box display="flex" alignItems="flex-end">
+        <Typography variant="h4">Hello {user.data.username}</Typography>
+        <Box ml={3}>
+          {
           !authLink.isLoading && authLink.data ? (
             <Button
               color="primary"
@@ -30,7 +33,15 @@ const Dashboard = () => {
             <CircularProgress />
           )
         }
+        </Box>
       </Box>
+      <Box mt={5} display="flex">
+        <UserInfo />
+      </Box>
+      <Box mt={5} display="flex">
+        <ChangePassword />
+      </Box>
+
     </Box>
   );
 };

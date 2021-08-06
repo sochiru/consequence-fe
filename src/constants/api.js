@@ -11,6 +11,7 @@ const API = {
   SIGN_IN: `${API_VERSION}/jwt`,
   SIGN_UP: `${API_VERSION}/users/register`,
   AUTH_LINK: `${API_VERSION}/auth/link`,
+  CHANGE_PASSWORD: `${API_VERSION}/change-password`,
 
   CARDS: `${API_VERSION}/cards`,
   CARD_DETAIL: (cardId) => `${API_VERSION}/cards/${cardId}`,

@@ -81,13 +81,6 @@ const Routes = () => (
       layout={PublicLayout}
       path={PAGES.NOT_FOUND}
     />
-    {/* <RouteWithLayout
-      title="Sign Out"
-      component={SignOut}
-      exact
-      layout={PublicLayout}
-      path={PAGES.SIGN_OUT}
-    /> */}
     <Redirect to={PAGES.NOT_FOUND} />
   </Switch>
 );
